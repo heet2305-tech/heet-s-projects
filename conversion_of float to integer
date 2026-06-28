@@ -1,0 +1,7 @@
+price = 19.75
+print(price)
+print(type(price))
+
+new_price = int(price)
+print(new_price)
+print(type(new_price))
