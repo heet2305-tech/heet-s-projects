@@ -1,0 +1,19 @@
+import pandas as pd
+
+data = {
+    "Name": ["Alice", "Bob", "Charlie", "David", "Emma"],
+    "Math": [85, 92, 78, 90, 88],
+    "Science": [80, 95, 82, 85, 91],
+    "English": [90, 88, 76, 87, 93]
+}
+
+df = pd.DataFrame(data)
+
+df["Average"] = df[["Math", "Science", "English"]].mean(axis=1)
+df["Grade"] = df["Average"].apply(
+    lambda x: "A" if x >= 90 else "B" if x >= 80 else "C"
+)
+
+print(df)
+print("\nTop Student:")
+print(df.loc[df["Average"].idxmax()])
